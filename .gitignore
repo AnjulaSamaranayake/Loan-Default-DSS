@@ -76,7 +76,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
-.ipynb_checkpoints
+.ipynb_checkpoints/
 
 # IPython
 profile_default/
@@ -150,9 +150,10 @@ activemq-data/
 # Environments
 .env
 .envrc
-.venv
-env/
+.env.*
+.venv/
 venv/
+env/
 ENV/
 env.bak/
 venv.bak/
@@ -199,7 +200,7 @@ cython_debug/
 #   that can be found at https://github.com/github/gitignore/blob/main/Global/VisualStudioCode.gitignore
 #   and can be added to the global gitignore or merged into this file. However, if you prefer, 
 #   you could uncomment the following to ignore the entire vscode folder
-# .vscode/
+.vscode/
 # Temporary file for partial code execution
 tempCodeRunnerFile.py
 
@@ -216,3 +217,85 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# =============================================================================
+# PROJECT-SPECIFIC RULES — Loan Default Decision Support System
+# =============================================================================
+
+# -----------------------------------------------------------------------------
+# Virtual Environments (additional aliases not covered above)
+# -----------------------------------------------------------------------------
+.venv/
+
+# -----------------------------------------------------------------------------
+# VS Code — workspace settings and extension state
+# (Uncommented here so the folder is tracked by default; remove the leading
+#  '#' on the next line if you prefer to commit your workspace settings)
+# -----------------------------------------------------------------------------
+# .vscode/            # already uncommented above
+*.code-workspace
+
+# -----------------------------------------------------------------------------
+# Environment variables & secrets
+# Never commit API keys, credentials, or tokens.
+# -----------------------------------------------------------------------------
+# .env and .env.* are already listed in the Environments section above.
+secrets.yaml
+secrets.yml
+credentials.json
+*.pem
+*.key
+*.crt
+
+# -----------------------------------------------------------------------------
+# Datasets — ignore raw and processed data files; allow .gitkeep placeholders
+# DO NOT add global *.csv rules — only scope to these directories.
+# -----------------------------------------------------------------------------
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+
+# -----------------------------------------------------------------------------
+# Machine Learning model artifacts
+# Ignore serialised model files; do NOT ignore .ipynb or .py source files.
+# -----------------------------------------------------------------------------
+*.pkl
+*.joblib
+*.h5
+*.pt
+*.pth
+*.onnx
+*.pb
+models/
+!models/.gitkeep
+
+# -----------------------------------------------------------------------------
+# Generated outputs & experiment artefacts
+# -----------------------------------------------------------------------------
+logs/
+*.log
+tmp/
+temp/
+.tmp/
+__pycache__/          # already in the template; listed here for clarity
+outputs/
+predictions/
+results/
+
+# MLflow / experiment tracking
+mlruns/
+.mlflow/
+wandb/
+
+# -----------------------------------------------------------------------------
+# OS-generated files
+# -----------------------------------------------------------------------------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
